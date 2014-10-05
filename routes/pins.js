@@ -1,12 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-//router.get('/', function(req, res) {
-//  res.render('index', { title: 'Express' });
-//});
-
-router.get('/pins/set/:number/:value', function(req, res) {
+router.get('/set/:number/:value', function(req, res) {
 
   var Gpio = require('onoff').Gpio;
   var pin = new Gpio(req.params.number, 'out');
@@ -22,9 +17,9 @@ router.get('/pins/set/:number/:value', function(req, res) {
     state: req.params.value
   });
 
-})
+});
 
-router.get('/pins/get/:number', function(req, res) {
+router.get('/get/:number', function(req, res) {
 
   var Gpio = require('onoff').Gpio;
   var pin = new Gpio(req.params.number, 'out');
