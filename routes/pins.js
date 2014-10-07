@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/set/:number/:value', function(req, res) {
+router.get('/set/:number/:value', function (req, res) {
 
   var Gpio = require('onoff').Gpio;
   var pin = new Gpio(req.params.number, 'out');
 
-  pin.writeSync(req.params.value === '0' ? 0 : 1, function(err) {
+  pin.writeSync(req.params.value === '0' ? 0 : 1, function (err) {
     if (err) throw err;
   });
 
@@ -19,7 +19,7 @@ router.get('/set/:number/:value', function(req, res) {
 
 });
 
-router.get('/get/:number', function(req, res) {
+router.get('/get/:number', function (req, res) {
 
   var Gpio = require('onoff').Gpio;
   var pin = new Gpio(req.params.number, 'out');
