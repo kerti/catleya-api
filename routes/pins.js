@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/set/:number/:value', function (req, res) {
+router.put('/:number/:value', function (req, res) {
 
   var Gpio = require('onoff').Gpio;
   var pin = new Gpio(req.params.number, 'out');
@@ -19,7 +19,7 @@ router.get('/set/:number/:value', function (req, res) {
 
 });
 
-router.get('/get/:number', function (req, res) {
+router.get('/:number', function (req, res) {
 
   var Gpio = require('onoff').Gpio;
   var pin = new Gpio(req.params.number, 'out');

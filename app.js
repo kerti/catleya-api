@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var pins = require('./routes/pins');
 var config = require('./routes/config');
+var devices = require('./routes/devices');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.all('*', function(req, res, next) {
 
 app.use('/pins', pins);
 app.use('/config', config);
+app.use('/devices', devices);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

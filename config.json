@@ -1,51 +1,141 @@
 {
-  "lights": [
+  "devices": [
     {
-      "name": "Front Porch",
+      "pin": 2,
+      "gpio": "out",
+      "name": "Board #1 Device #1",
+      "active": true,
       "auto": false,
-      "state": "on"
-    },
-    {
-      "name": "Back Porch",
-      "auto": false,
-      "state": "off"
-    },
-    {
-      "name": "Driveway Light",
-      "auto": true,
       "state": "on",
-      "timers": [
-        {
-          "start": "17:45",
-          "end": "06:15"
-        }
-      ]
-    },
-    {
-      "name": "Garage",
-      "auto": true,
-      "state": "on",
-      "timers": [
-        {
-          "start": "17:45",
-          "end": "21:00"
-        },
-        {
-          "start": "05:45",
-          "end": "06:30"
-        }
-      ]
-    },
-    {
-      "name": "Front Yard Sprinklers",
+      "type": "light"
+    }, {
+      "pin": 3,
+      "gpio": "out",
+      "name": "Board #1 Device #2",
+      "active": true,
       "auto": true,
       "state": "off",
-      "timers": [
-        {
-          "start": "23:30",
-          "end": "23:45"
-        }
-      ]
+      "type": "light"
+    }, {
+      "pin": 4,
+      "gpio": "out",
+      "name": "Board #1 Device #3",
+      "active": true,
+      "auto": true,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 17,
+      "gpio": "out",
+      "name": "Board #1 Device #4",
+      "active": true,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 27,
+      "gpio": "out",
+      "name": "Board #1 Device #5",
+      "active": false,
+      "auto": false,
+      "state": "off",
+      "type": "light"
+    }, {
+      "pin": 22,
+      "gpio": "out",
+      "name": "Board #1 Device #6",
+      "active": true,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 10,
+      "gpio": "out",
+      "name": "Board #1 Device #7",
+      "active": true,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 9,
+      "gpio": "out",
+      "name": "Board #1 Device #8",
+      "active": true,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 14,
+      "gpio": "out",
+      "name": "Board #2 Device #1",
+      "active": false,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 15,
+      "gpio": "out",
+      "name": "Board #2 Device #2",
+      "active": false,
+      "auto": false,
+      "state": "off",
+      "type": "light"
+    }, {
+      "pin": 18,
+      "gpio": "out",
+      "name": "Board #2 Device #3",
+      "active": false,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 23,
+      "gpio": "out",
+      "name": "Board #2 Device #4",
+      "active": true,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 24,
+      "gpio": "out",
+      "name": "Board #2 Device #5",
+      "active": false,
+      "auto": false,
+      "state": "off",
+      "type": "light"
+    }, {
+      "pin": 25,
+      "gpio": "out",
+      "name": "Board #2 Device #6",
+      "active": false,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 8,
+      "gpio": "out",
+      "name": "Board #2 Device #7",
+      "active": false,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }, {
+      "pin": 7,
+      "gpio": "out",
+      "name": "Board #2 Device #8",
+      "active": false,
+      "auto": false,
+      "state": "on",
+      "type": "light"
+    }
+  ],
+  "timers": [
+    {
+      "pin": [3, 4],
+      "start": "12:00",
+      "end": "14:00",
+      "days": [1, 2, 3, 4, 5, 6, 7]
     }
   ]
 }

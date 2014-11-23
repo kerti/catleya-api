@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/get/', function (req, res) {
+router.get('/', function (req, res) {
   require('fs').readFile(
     'config.json',
     {
@@ -16,7 +16,7 @@ router.get('/get/', function (req, res) {
   });
 });
 
-router.get('/get/:nodepath', function (req, res) {
+router.get('/:nodepath', function (req, res) {
   require('fs').readFile(
     'config.json',
     {
@@ -28,7 +28,11 @@ router.get('/get/:nodepath', function (req, res) {
       } else {
         var path = "JSON.parse(data)." + req.params.nodepath;
         try {
-          res.status(200).json(eval(path));
+          if (eval(path) === undefined) {
+            res.status(500).send("Configuration path does not exist: " + path);
+          } else {
+            res.status(200).json(eval(path));
+          }
         } catch (e) {
           res.status(500).send("Fail to read data: " + e);
         }
@@ -36,13 +40,13 @@ router.get('/get/:nodepath', function (req, res) {
   });
 });
 
-router.get('/update/:nodepath/:value', function (req, res) {
+router.put('/:nodepath/:value', function (req, res) {
   var fs = require('fs');
   fs.readFile(
     'config.json',
     function (err, data) {
       if (err) {
-        res.status(500).send("Fail to update data: " + err);
+        res.status(500).send("Fail to read data before updating: " + err);
       } else {
         var config = JSON.parse(data);
         try{
