@@ -103,12 +103,13 @@ router.put('/:id', function (req, res) {
             var state = pin.readSync();
 
             // attempt to write the pin status if necessary
-            var pinStatusToSet = 0;
+            // remember that the relay board is ACTIVE LOW
+            var pinStatusToSet = 1;
             if (device.state != req.body.state) {
               if (req.body.state === 'on') {
-                pinStatusToSet = 1;
-              } else if (req.body.state === 'off') {
                 pinStatusToSet = 0;
+              } else if (req.body.state === 'off') {
+                pinStatusToSet = 1;
               }
               var tryAgain = false;
               pin.writeSync(pinStatusToSet, function (err) {
